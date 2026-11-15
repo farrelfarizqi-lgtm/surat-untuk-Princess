@@ -4,60 +4,167 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff1f2">
 <title>For My Princess Irene ❤️</title>
+
 <style>
-*{box-sizing:border-box}
-body{
- margin:0;
- font-family:Georgia,serif;
- background:linear-gradient(135deg,#fff4f2,#f9e1e5,#fff8f0);
- color:#65434b;
- text-align:center;
+:root {
+  --pink:#bd7187;
+  --dark:#754653;
+  --cream:#fff9f3;
+  --soft:#fbe8e9;
 }
-.container{max-width:760px;margin:auto;padding:35px 20px}
-.hero{min-height:95vh;display:flex;flex-direction:column;justify-content:center;align-items:center}
-.heart{font-size:55px;animation:pulse 1.5s infinite}
-@keyframes pulse{50%{transform:scale(1.18)}}
-h1{font-size:clamp(32px,7vw,48px);color:#a34e68}
-h2{color:#a34e68}
-p{font-size:17px;line-height:1.9}
-button{
- background:#a34e68;color:white;border:0;
- padding:14px 25px;border-radius:30px;
- font-size:16px;cursor:pointer;margin:12px;
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
+body {
+  margin:0;
+  color:var(--dark);
+  font-family:Georgia,serif;
+  background:linear-gradient(140deg,#fff9f3,#fbe9ed,#fff5ee);
+  overflow-x:hidden;
 }
-button:hover{background:#82384f}
-.card{
- background:#fffaf8;padding:28px 24px;
- border-radius:20px;margin:25px 0;
- box-shadow:0 8px 25px #9b58651a;
- text-align:left;line-height:1.9;
+button {font-family:inherit;cursor:pointer}
+#petals {
+  position:fixed;inset:0;pointer-events:none;
+  overflow:hidden;z-index:5;
 }
+.petal {
+  position:absolute;top:-35px;
+  color:#d78da0;
+  animation:fall linear forwards;
+  opacity:.7;
+}
+@keyframes fall {
+  to {transform:translateY(110vh) rotate(500deg);opacity:0}
+}
+.hero {
+  min-height:100svh;
+  display:flex;align-items:center;justify-content:center;
+  padding:30px 18px;text-align:center;
+}
+.hero-inner {max-width:550px}
+.eyebrow {
+  letter-spacing:4px;font-size:11px;color:#b27b86;
+}
+h1 {
+  color:#a95e75;
+  font-size:clamp(35px,8vw,55px);
+  line-height:1.15;margin:20px 0;
+}
+.subtitle {line-height:1.9;color:#936e75}
+.envelope {
+  width:180px;height:125px;
+  position:relative;margin:45px auto 30px;
+  background:#e8b8c2;border-radius:5px;
+  box-shadow:0 12px 30px #9c62732b;
+}
+.envelope:before {
+  content:"";position:absolute;inset:0;
+  background:#f1cbd0;
+  clip-path:polygon(0 0,50% 58%,100% 0);
+  transform-origin:top;
+  transition:transform 1s;z-index:2;
+}
+.envelope.open:before {transform:rotateX(180deg)}
+.envelope:after {
+  content:"♥";position:absolute;top:43px;left:0;right:0;
+  color:white;font-size:32px;z-index:3;
+}
+.open-btn,.music-btn {
+  background:#b76c82;color:white;border:0;
+  padding:15px 27px;border-radius:30px;
+  box-shadow:0 7px 20px #b76c8240;
+  font-size:15px;transition:.3s;
+}
+.open-btn:hover,.music-btn:hover {
+  transform:translateY(-3px);background:#96536a;
+}
+#letter {display:none;padding:20px 16px 70px}
+#letter.visible {display:block}
+.section-title{text-align:center;color:#ad647b}
+.card {
+  max-width:680px;margin:25px auto;
+  padding:30px 25px;
+  background:#fffdf9eF;
+  border:1px solid #f2dce0;
+  border-radius:18px;
+  box-shadow:0 12px 35px #a76b7710;
+  line-height:1.95;
+  opacity:0;transform:translateY(25px);
+  transition:opacity .8s,transform .8s;
+}
+.card.show {opacity:1;transform:translateY(0)}
+.card h2 {color:#ad647b;font-size:23px}
+.card p {font-size:16px}
 .center{text-align:center}
-.hidden{display:none}
-.signature{font-style:italic;color:#a34e68}
-footer{padding:35px;font-size:14px;color:#946b74}
-hr{border:0;border-top:1px solid #efd5da;margin:25px 0}
+.rose {font-size:35px}
+.promise {
+  background:linear-gradient(135deg,#fff3f2,#f9e4e9);
+}
+.promise p {margin:12px 0}
+.signature {font-style:italic;color:#a45e74}
+.music-area {
+  max-width:680px;margin:25px auto;
+  padding:22px;background:#fffaf7;
+  border:1px solid #f0d8df;border-radius:18px;
+  text-align:center;
+}
+.music-area iframe {
+  display:block;width:100%;height:190px;
+  border:0;border-radius:12px;margin-top:15px;
+}
+.music-note {font-size:13px;color:#99757d}
+footer {text-align:center;padding:30px 15px;color:#a27a82}
+@media(prefers-reduced-motion:reduce) {
+  *,*:before,*:after {
+    animation-duration:.01ms!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
+}
 </style>
 </head>
-<body>
 
-<section class="hero container">
- <div class="heart">❤️</div>
- <p>A LITTLE LETTER FROM MY HEART</p>
- <h1>For My Princess Irene</h1>
- <p>Ada sesuatu yang ingin aku sampaikan kepadamu...</p>
- <button onclick="openLetter()">Open My Letter 💌</button>
- <p style="font-size:13px">Dibuat dengan tulus, khusus untukmu.</p>
+<body>
+<div id="petals"></div>
+
+<section class="hero">
+ <div class="hero-inner">
+  <div class="eyebrow">A LITTLE LETTER FROM MY HEART</div>
+  <h1>For My<br>Princess Irene</h1>
+  <p class="subtitle">
+   There is something I have been wanting<br>
+   to tell you, from the bottom of my heart.
+  </p>
+
+  <div class="envelope" id="envelope"></div>
+
+  <button class="open-btn" id="openButton" onclick="openLetter()">
+   Open My Letter 💌
+  </button>
+  <p class="music-note">A letter made with sincerity, just for you.</p>
+ </div>
 </section>
 
-<main id="letter" class="container hidden">
+<main id="letter">
 
- <h2>Dear Princess Irene,</h2>
- <p class="center">Yth. Princess Irene ❤️</p>
+ <h2 class="section-title">Dear Princess Irene ❤️</h2>
 
- <div class="card">
-  <h2>First, I'm Truly Sorry.</h2>
+ <div class="music-area">
+  <div class="rose">🎵</div>
+  <h2>Our Little Melody</h2>
+  <p>Shape of My Heart — Backstreet Boys</p>
+  <button class="music-btn" id="musicButton" onclick="toggleMusic()">
+   ▶ Play Music
+  </button>
+  <div id="musicPlayer"></div>
+  <p class="music-note">
+   Musik akan diputar melalui pemutar resmi YouTube.
+  </p>
+ </div>
+
+ <article class="card">
+  <h2>01. First, I'm Truly Sorry.</h2>
   <p>
    Sayang, aku ingin meminta maaf kepadamu.
    Bukan hanya sekadar mengucapkan kata maaf,
@@ -71,14 +178,14 @@ hr{border:0;border-top:1px solid #efd5da;margin:25px 0}
    sampai terkadang aku membuatmu merasa
    tidak mendapatkan waktu dan perhatian yang seharusnya.
   </p>
- </div>
+ </article>
 
- <div class="card">
-  <h2>I'm Sorry For My Words.</h2>
+ <article class="card">
+  <h2>02. I'm Sorry For My Words.</h2>
   <p>
    Ada satu hal lagi yang benar-benar ingin aku sesali.
-   Maaf karena aku pernah menyebutmu
-   dengan perkataan "nggak jelas".
+   Maaf karena aku pernah menyebutmu dengan perkataan
+   "nggak jelas".
   </p>
   <p>
    Saat itu aku sedang merasa lelah dan terbebani
@@ -97,10 +204,10 @@ hr{border:0;border-top:1px solid #efd5da;margin:25px 0}
    hanya karena aku sedang mengalami hari yang berat.
    Aku benar-benar minta maaf, Irene.
   </p>
- </div>
+ </article>
 
- <div class="card">
-  <h2>What I Have Realized.</h2>
+ <article class="card">
+  <h2>03. What I Have Realized.</h2>
   <p>
    Aku mulai memahami bahwa sebuah hubungan
    bukan hanya tentang saling menyayangi,
@@ -117,40 +224,25 @@ hr{border:0;border-top:1px solid #efd5da;margin:25px 0}
    Aku ingin belajar menjadi seseorang
    yang lebih dewasa dalam menghadapi masalah.
   </p>
- </div>
+ </article>
 
- <div class="card">
-  <h2>My Purpose & My Promise.</h2>
+ <article class="card promise">
+  <h2>04. My Purpose & My Promise.</h2>
   <p>
    Aku tidak ingin hanya menjanjikan perubahan
    melalui tulisan ini. Aku ingin membuktikannya
    melalui tindakan nyata.
   </p>
-  <p>Mulai sekarang, aku ingin berusaha untuk:</p>
-  <p>
-   ❤️ Mengatur waktu kuliah dan waktu bersama kamu
-   dengan lebih baik.
-  </p>
-  <p>
-   ❤️ Tidak membiarkan kesibukan membuatmu
-   merasa diabaikan.
-  </p>
-  <p>
-   ❤️ Belajar mengendalikan emosi dan menjaga
-   perkataanku, bahkan ketika sedang lelah.
-  </p>
-  <p>
-   ❤️ Mendengarkan perasaanmu tanpa langsung
-   membela diri atau mencari alasan.
-  </p>
-  <p>
-   ❤️ Menunjukkan keseriusanku melalui konsistensi,
-   bukan hanya kata-kata manis.
-  </p>
- </div>
+  <p>❤️ Mengatur waktu kuliah dan waktu bersama kamu dengan lebih baik.</p>
+  <p>❤️ Tidak membiarkan kesibukan membuatmu merasa diabaikan.</p>
+  <p>❤️ Belajar mengendalikan emosi dan menjaga perkataanku, bahkan ketika sedang lelah.</p>
+  <p>❤️ Mendengarkan perasaanmu tanpa langsung membela diri atau mencari alasan.</p>
+  <p>❤️ Menunjukkan keseriusanku melalui konsistensi, bukan hanya kata-kata manis.</p>
+ </article>
 
- <div class="card center">
-  <h2>I Don't Want To Force You.</h2>
+ <article class="card center">
+  <div class="rose">🌷</div>
+  <h2>05. I Don't Want To Force You.</h2>
   <p>
    Aku tidak menulis semua ini untuk memaksamu
    memaafkanku secepatnya.
@@ -165,10 +257,10 @@ hr{border:0;border-top:1px solid #efd5da;margin:25px 0}
    kamu bisa melihat kesungguhanku
    melalui perubahan yang benar-benar aku lakukan.
   </p>
- </div>
+ </article>
 
- <div class="card center">
-  <div class="heart">🌷</div>
+ <article class="card center">
+  <div class="rose">💗</div>
   <h2>One Last Thing...</h2>
   <p>
    Irene, terima kasih karena sudah menjadi
@@ -186,30 +278,104 @@ hr{border:0;border-top:1px solid #efd5da;margin:25px 0}
    kurang dihargai. Kamu layak mendapatkan
    sikap dan perkataan yang baik dariku.
   </p>
-  <hr>
+  <hr style="border:0;border-top:1px solid #eed5dc;margin:25px 0">
   <h2>I Will Do Better, Princess.</h2>
   <p class="signature">
    With all my sincerity,<br>
    Someone who is still learning to love you better.
   </p>
-  <h2>❤️</h2>
- </div>
+  <div class="rose">❤️</div>
+ </article>
 
- <button onclick="window.scrollTo({top:0,behavior:'smooth'})">
-  Back to Beginning ↑
- </button>
-
+ <footer>
+  Made with love and sincerity, especially for Princess Irene.
+  <br>Always with a sincere heart. 🌷
+ </footer>
 </main>
 
-<footer>
- Made with sincerity, for Princess Irene. ❤️
-</footer>
-
 <script>
-function openLetter(){
- document.getElementById("letter").classList.remove("hidden");
- document.getElementById("letter").scrollIntoView({behavior:"smooth"});
+let musicStarted=false;
+let musicPlaying=false;
+
+function createPetal(){
+ const el=document.createElement("span");
+ el.className="petal";
+ el.textContent=["🌸","♡","♥","✿"][Math.floor(Math.random()*4)];
+ el.style.left=Math.random()*100+"%";
+ el.style.fontSize=(12+Math.random()*15)+"px";
+ el.style.animationDuration=(7+Math.random()*7)+"s";
+ document.getElementById("petals").appendChild(el);
+ setTimeout(()=>el.remove(),15000);
 }
+setInterval(createPetal,650);
+
+function openLetter(){
+ document.getElementById("envelope").classList.add("open");
+ document.getElementById("letter").classList.add("visible");
+ document.getElementById("openButton").textContent="Letter Opened ❤️";
+ document.getElementById("openButton").disabled=true;
+
+ document.getElementById("letter").scrollIntoView({behavior:"smooth"});
+
+ const player=document.getElementById("musicPlayer");
+ if(!musicStarted){
+  player.innerHTML=
+   '<iframe id="ytMusic" title="Shape of My Heart - Backstreet Boys" '+
+   'src="https://www.youtube-nocookie.com/embed/OT5msu-dap8?autoplay=1&playsinline=1&rel=0" '+
+   'allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+  musicStarted=true;
+  musicPlaying=true;
+  document.getElementById("musicButton").textContent="⏸ Pause Music";
+ }
+
+ setTimeout(()=>{
+  document.querySelectorAll(".card").forEach((card,i)=>{
+   setTimeout(()=>card.classList.add("show"),i*250);
+  });
+ },300);
+}
+
+function toggleMusic(){
+ const player=document.getElementById("musicPlayer");
+ const button=document.getElementById("musicButton");
+ if(!musicStarted){
+  player.innerHTML=
+   '<iframe id="ytMusic" title="Shape of My Heart - Backstreet Boys" '+
+   'src="https://www.youtube-nocookie.com/embed/OT5msu-dap8?autoplay=1&playsinline=1&rel=0" '+
+   'allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+  musicStarted=true;
+  musicPlaying=true;
+  button.textContent="⏸ Pause Music";
+ }else{
+  const frame=document.getElementById("ytMusic");
+  if(musicPlaying){
+   frame.contentWindow.postMessage(
+    JSON.stringify({event:"command",func:"pauseVideo",args:[]}),
+    "https://www.youtube-nocookie.com"
+   );
+   musicPlaying=false;
+   button.textContent="▶ Play Music";
+  }else{
+   frame.contentWindow.postMessage(
+    JSON.stringify({event:"command",func:"playVideo",args:[]}),
+    "https://www.youtube-nocookie.com"
+   );
+   musicPlaying=true;
+   button.textContent="⏸ Pause Music";
+  }
+ }
+}
+
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{
+  if(entry.isIntersecting){
+   entry.target.classList.add("show");
+   observer.unobserve(entry.target);
+  }
+ });
+},{threshold:.12});
+
+document.querySelectorAll(".card").forEach(card=>observer.observe(card));
 </script>
 
 </body>
